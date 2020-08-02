@@ -9,6 +9,7 @@
 import UIKit
 
 protocol CityChooseDelegate {
+    func refreshData()
     func chooseCity(cityId: Int)
 }
 
@@ -26,17 +27,33 @@ class HomeScreenViewHandler: NSObject {
     
     private var delegate: CityChooseDelegate?
     
+    var refreshControl = UIRefreshControl()
+    
     func configView(delegate: CityChooseDelegate) {
         self.setupTableCell()
+        self.setupPullToRefresh()
         self.delegate = delegate
     }
     
-    func updateData(data: [WeatherViewModel]) {
+    func updateData(data: [WeatherViewModel], refresh: Bool) {
+        if refresh {
+            self.refreshControl.endRefreshing()
+        }
         self.viewModels = data
     }
     
     private func setupTableCell() {
         self.tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+    }
+    
+    private func setupPullToRefresh() {
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(self.refreshData(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refreshData(_ sender: AnyObject) {
+        self.delegate?.refreshData()
     }
     
 }

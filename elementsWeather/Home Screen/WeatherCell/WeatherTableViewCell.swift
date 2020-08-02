@@ -47,5 +47,10 @@ class WeatherTableViewCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.cityImage.image = nil
+    }
+    
 
 }

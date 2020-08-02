@@ -18,20 +18,25 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewHandler.configView(delegate: self)
-        self.getActualWeather()
+        self.getActualWeather(refresh: false)
     }
 
-    private func getActualWeather() {
-        NetworkManager.shared.getActualWeather() { weather in
+    private func getActualWeather(refresh: Bool) {
+        NetworkManager.shared.getActualWeather() { [weak self] weather in
+            guard let self = self else { return }
             guard let data = weather else { return }
             let viewModels = self.interactor.mergeAndSortCitiesWeather(data: data)
             self.dataWeather = viewModels
-            self.viewHandler.updateData(data: viewModels)
+            self.viewHandler.updateData(data: viewModels, refresh: refresh)
         }
     }
 }
 
 extension HomeScreenViewController: CityChooseDelegate {
+    func refreshData() {
+        self.getActualWeather(refresh: true)
+    }
+    
     func chooseCity(cityId: Int) {
         let weatherInCity = dataWeather.first(where: { $0.cityId == cityId })
         let nextScreen = CityDetailScreenViewController.storyboardController(cityId: cityId, data: weatherInCity)

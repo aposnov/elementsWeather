@@ -20,7 +20,7 @@ class CityDetailCollectionViewCell: UICollectionViewCell {
     
     func fillData(data: CityTemp) {
         if let temp = data.temp {
-            self.tempLabel.text = String(format: "%.1f", temp)
+            self.tempLabel.text = String(format: "%.1f", temp) + " C"
         }
         if let date = data.date {
             self.dayTimeLabel.text = date.dayTime
