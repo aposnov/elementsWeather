@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityDetailCollectionViewCell" id="gTV-IL-0wX" customClass="CityDetailCollectionViewCell" customModule="elementsWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqE-5l-H6z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTR-Dz-6dO">
+                                <rect key="frame" x="151" y="29" width="73" height="42"/>
+                                <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-WN-ZoV">
+                                <rect key="frame" x="0.0" y="15" width="375" height="28"/>
+                                <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Icx-WN-ZoV" secondAttribute="trailing" id="3mx-9Z-QHA"/>
+                            <constraint firstItem="QTR-Dz-6dO" firstAttribute="centerY" secondItem="AqE-5l-H6z" secondAttribute="centerY" id="Dyd-jU-yUP"/>
+                            <constraint firstItem="Icx-WN-ZoV" firstAttribute="leading" secondItem="AqE-5l-H6z" secondAttribute="leading" id="OEI-yn-0Ws"/>
+                            <constraint firstItem="Icx-WN-ZoV" firstAttribute="top" secondItem="AqE-5l-H6z" secondAttribute="top" constant="15" id="QWK-aO-wvK"/>
+                            <constraint firstItem="QTR-Dz-6dO" firstAttribute="centerX" secondItem="AqE-5l-H6z" secondAttribute="centerX" id="qXA-XJ-Guh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AqE-5l-H6z" secondAttribute="bottom" id="48e-LO-php"/>
+                <constraint firstItem="AqE-5l-H6z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Nr6-dB-m63"/>
+                <constraint firstItem="AqE-5l-H6z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aG0-vT-ROI"/>
+                <constraint firstAttribute="trailing" secondItem="AqE-5l-H6z" secondAttribute="trailing" id="gqg-t0-X4X"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="107" height="110"/>
+            <connections>
+                <outlet property="dayTimeLabel" destination="Icx-WN-ZoV" id="KVD-mU-DPa"/>
+                <outlet property="tempLabel" destination="QTR-Dz-6dO" id="y11-77-97b"/>
+            </connections>
+            <point key="canvasLocation" x="89.855072463768124" y="107.8125"/>
+        </collectionViewCell>
+    </objects>
+</document>
