@@ -1,0 +1,1 @@
+A few words about the selected architecture, I developed an application on the architecture modified MVC, with ViewController basic logic, ViewHandler all things with UI and Interactor with encapsulating business logic. For network requests, I used to Alamofire pod.

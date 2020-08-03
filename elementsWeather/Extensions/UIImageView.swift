@@ -8,6 +8,8 @@
 
 import UIKit
 
+let imageCache = NSCache<NSString, UIImage>()
+
 extension UIImageView {
     public func imageFromURL(urlString: String) {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
@@ -30,11 +32,15 @@ extension UIImageView {
                 return
             }
             DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                // add image to cache
-                imageCache.setObject(image!, forKey: urlString as NSString)
-                activityIndicator.removeFromSuperview()
-                self.image = image
+                if let image = UIImage(data: data!) {
+                    // add image to cache
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    activityIndicator.removeFromSuperview()
+                    self.image = image
+                } else {
+                    activityIndicator.removeFromSuperview()
+                    self.image = UIImage(named: "nopicture")
+                }
             })
 
         }).resume()

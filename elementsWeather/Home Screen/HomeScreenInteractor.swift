@@ -11,8 +11,6 @@ import Alamofire
 import SystemConfiguration
 import CoreData
 
-let imageCache = NSCache<NSString, UIImage>()
-
 class HomeScreenInteractor {
     
     // Get weather if we have internet load from internet, if not, load from database
@@ -100,7 +98,6 @@ class HomeScreenInteractor {
         
         do {
             try CoreDataManager.context.execute(deleteRequest)
-            try CoreDataManager.context.save()
         } catch {
             print ("There was an error")
         }
@@ -108,17 +105,18 @@ class HomeScreenInteractor {
         
         do {
             try CoreDataManager.context.execute(deleteRequest2)
-            try CoreDataManager.context.save()
         } catch {
             print ("There was an error")
         }
         
         do {
             try CoreDataManager.context.execute(deleteRequest3)
-            try CoreDataManager.context.save()
         } catch {
             print ("There was an error")
         }
+        
+
+        try CoreDataManager.context.refreshAllObjects()
     }
     
     // Load weather from internet
@@ -245,25 +243,17 @@ class HomeScreenInteractor {
     
     // download image
     private func imageFromURLstored(urlString: String, completion: @escaping (UIImage?) -> Void ) {
-        // check if the image is already in the cache
-        if let imageToCache = imageCache.object(forKey: urlString as NSString) {
-            completion(imageToCache)
-        }
-        
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
             if error != nil {
                 print(error ?? "No Error")
                 return
             }
             DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                // add image to cache
-                imageCache.setObject(image!, forKey: urlString as NSString)
-                completion(image)
+                if let image = UIImage(data: data!) {
+                    completion(image)
+                }
             })
         }).resume()
     }
-    
-    
 
 }
