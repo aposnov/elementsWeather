@@ -22,10 +22,9 @@ class HomeScreenViewController: UIViewController {
     }
 
     private func getActualWeather(refresh: Bool) {
-        NetworkManager.shared.getActualWeather() { [weak self] weather in
+        self.interactor.getActualWeather() { [weak self] viewModels in
             guard let self = self else { return }
-            guard let data = weather else { return }
-            let viewModels = self.interactor.mergeAndSortCitiesWeather(data: data)
+            guard let viewModels = viewModels else { return }
             self.dataWeather = viewModels
             self.viewHandler.updateData(data: viewModels, refresh: refresh)
         }

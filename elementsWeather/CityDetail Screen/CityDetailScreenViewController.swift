@@ -20,7 +20,9 @@ class CityDetailScreenViewController: UIViewController {
         let vc = storyboard.instantiateInitialViewController() as! CityDetailScreenViewController
         vc.modalPresentationStyle = .fullScreen
         vc.cityId = cityId ?? 0
-        vc.weatherInCity = data ?? WeatherViewModel(cityId: 0, cityName: nil, cityPicture: nil, temps: nil)
+        if let data = data {
+            vc.weatherInCity = data
+        }
         return vc
     }
     

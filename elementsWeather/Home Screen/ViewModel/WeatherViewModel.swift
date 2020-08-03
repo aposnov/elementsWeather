@@ -12,6 +12,7 @@ struct WeatherViewModel {
     let cityId: Int
     let cityName: String?
     let cityPicture: String?
+    let cityPictureImg: UIImage?
     var temps: [CityTemp]?
 }
 

@@ -13,11 +13,20 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
-    func getActualWeather(completion: @escaping ([WeatherModel]?) -> Void) {
+    func getActualWeather(completion: @escaping ([WeatherModel]?, String?) -> Void) {
         AF.request(ConfigAPI.url, method: .get).response { response in
-            guard let data = response.data else { return }
-            let mapped = try? WeatherModel.decodeArray(from: data)
-            completion(mapped)
+            switch response.result {
+            case .success:
+                guard let data = response.data else { return }
+                let mapped = try? WeatherModel.decodeArray(from: data)
+                if mapped?.count != 0 {
+                    completion(mapped, nil)
+                } else {
+                    completion(nil, ErrorTypes.something.rawValue)
+                }
+            case let .failure(error):
+                completion(nil, error.errorDescription)
+            }
         }
     }
     

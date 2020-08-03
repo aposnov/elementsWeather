@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CityTempDb" representedClassName="CityTempDb" syncable="YES" codeGenerationType="class">
+        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDateDb"/>
+    </entity>
+    <entity name="WeatherDateDb" representedClassName="WeatherDateDb" syncable="YES" codeGenerationType="class">
+        <attribute name="dateOrigin" optional="YES" attributeType="String"/>
+        <attribute name="dayTime" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="WeatherModelDb" representedClassName="WeatherModelDb" syncable="YES" codeGenerationType="class">
+        <attribute name="cityId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cityName" optional="YES" attributeType="String"/>
+        <attribute name="cityPicture" optional="YES" attributeType="String"/>
+        <attribute name="cityPictureImg" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CityTempDb"/>
+    </entity>
+    <elements>
+        <element name="WeatherModelDb" positionX="-361.0390625" positionY="32.015625" width="128" height="118"/>
+        <element name="WeatherDateDb" positionX="-484.2109375" positionY="203.046875" width="128" height="88"/>
+        <element name="CityTempDb" positionX="-91.953125" positionY="106.2421875" width="128" height="73"/>
+    </elements>
 </model>

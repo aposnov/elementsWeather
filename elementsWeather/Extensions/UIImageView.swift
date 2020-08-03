@@ -16,15 +16,23 @@ extension UIImageView {
         if self.image == nil{
             self.addSubview(activityIndicator)
         }
+        
+        // check if the image is already in the cache
+        if let imageToCache = imageCache.object(forKey: urlString as NSString) {
+            self.image = imageToCache
+            activityIndicator.removeFromSuperview()
+            return
+        }
 
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-
             if error != nil {
                 print(error ?? "No Error")
                 return
             }
             DispatchQueue.main.async(execute: { () -> Void in
                 let image = UIImage(data: data!)
+                // add image to cache
+                imageCache.setObject(image!, forKey: urlString as NSString)
                 activityIndicator.removeFromSuperview()
                 self.image = image
             })
@@ -32,3 +40,6 @@ extension UIImageView {
         }).resume()
     }
 }
+
+
+

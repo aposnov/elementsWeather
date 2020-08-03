@@ -73,6 +73,8 @@ extension HomeScreenViewHandler: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! WeatherTableViewCell
         cell.fillData(data: viewModels[indexPath.row])
         cell.cityImage.layer.cornerRadius = 15
+        cell.backgroundColor = .white
+        cell.layer.applySketchShadow(color: .black, alpha: 0.3, xCoord: 0, yCoord: 4, blur: 16, spread: 0)
         cell.layer.cornerRadius = 15
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.masksToBounds = true

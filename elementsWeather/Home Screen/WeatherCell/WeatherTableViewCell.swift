@@ -42,7 +42,9 @@ class WeatherTableViewCell: UITableViewCell {
     
     func fillData(data: WeatherViewModel) {
         self.cityName.text = data.cityName
-        if let imageUrl = data.cityPicture {
+        if let imageLocal = data.cityPictureImg {
+            self.cityImage.image = imageLocal
+        } else if let imageUrl = data.cityPicture {
             self.cityImage.imageFromURL(urlString: imageUrl)
         }
     }

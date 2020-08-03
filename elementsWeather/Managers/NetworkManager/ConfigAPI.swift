@@ -11,3 +11,8 @@ import Foundation
 struct ConfigAPI {
     static let url = "https://us-central1-mobile-assignment-server.cloudfunctions.net/weather"
 }
+
+enum ErrorTypes: String {
+    case Error
+    case something = "Something Went Wrong"
+}

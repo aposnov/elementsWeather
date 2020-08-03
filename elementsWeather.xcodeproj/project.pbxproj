@@ -11,6 +11,7 @@
 		399C878EACE084E1980C04CF /* Pods_elementsWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D8AF8B54305CE57D7A0983F /* Pods_elementsWeatherTests.framework */; };
 		66C35AFBD61BC0A538A6157B /* Pods_elementsWeather_elementsWeatherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF8922179B78BA9D2042D22A /* Pods_elementsWeather_elementsWeatherUITests.framework */; };
 		E7969EFE24D748A6006F287C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7969EFD24D748A6006F287C /* UIImageView.swift */; };
+		E7969F0224D77F70006F287C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7969F0124D77F70006F287C /* CoreDataManager.swift */; };
 		E7AA505424D70CAA002BBE66 /* CityDetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AA505324D70CAA002BBE66 /* CityDetailScreen.storyboard */; };
 		E7AA505624D70CB6002BBE66 /* CityDetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AA505524D70CB6002BBE66 /* CityDetailScreenViewController.swift */; };
 		E7AA505824D70CC1002BBE66 /* CityDetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AA505724D70CC1002BBE66 /* CityDetailViewHandler.swift */; };
@@ -62,6 +63,7 @@
 		BB2A9F4E1265BBAADF755675 /* Pods-elementsWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elementsWeather.debug.xcconfig"; path = "Target Support Files/Pods-elementsWeather/Pods-elementsWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		DF8922179B78BA9D2042D22A /* Pods_elementsWeather_elementsWeatherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elementsWeather_elementsWeatherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7969EFD24D748A6006F287C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		E7969F0124D77F70006F287C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E7AA505324D70CAA002BBE66 /* CityDetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityDetailScreen.storyboard; sourceTree = "<group>"; };
 		E7AA505524D70CB6002BBE66 /* CityDetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailScreenViewController.swift; sourceTree = "<group>"; };
 		E7AA505724D70CC1002BBE66 /* CityDetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewHandler.swift; sourceTree = "<group>"; };
@@ -133,12 +135,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E715596D24D6D89700D7C42D /* Model */ = {
+		E715596D24D6D89700D7C42D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				E7C57CD224D2229B0004D7B7 /* WeatherViewModel.swift */,
 			);
-			path = Model;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E7AA505124D70C82002BBE66 /* CityDetail Screen */ = {
@@ -228,12 +230,12 @@
 		E7C57CBF24D2174E0004D7B7 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E715596D24D6D89700D7C42D /* Model */,
+				E715596D24D6D89700D7C42D /* ViewModel */,
 				E7C57CCC24D21FDF0004D7B7 /* WeatherCell */,
 				E7C57C9124D216880004D7B7 /* HomeScreen.storyboard */,
 				E7C57C8F24D216880004D7B7 /* HomeScreenViewController.swift */,
-				E7C57CD424D2238F0004D7B7 /* HomeScreenInteractor.swift */,
 				E7C57CD624D224C80004D7B7 /* HomeScreenViewHandler.swift */,
+				E7C57CD424D2238F0004D7B7 /* HomeScreenInteractor.swift */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E7C57CC324D218CC0004D7B7 /* NetworkManager */,
+				E7969F0124D77F70006F287C /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				E7C57CD324D2229B0004D7B7 /* WeatherViewModel.swift in Sources */,
 				E7AA505624D70CB6002BBE66 /* CityDetailScreenViewController.swift in Sources */,
 				E7C57CC524D218DC0004D7B7 /* ConfigAPI.swift in Sources */,
+				E7969F0224D77F70006F287C /* CoreDataManager.swift in Sources */,
 				E7C57CC224D218A40004D7B7 /* NetworkManager.swift in Sources */,
 				E7C57CD724D224C80004D7B7 /* HomeScreenViewHandler.swift in Sources */,
 				E7C57C9024D216880004D7B7 /* HomeScreenViewController.swift in Sources */,
